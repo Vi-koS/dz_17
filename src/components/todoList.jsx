@@ -17,8 +17,8 @@ const TodoList = () => {
         fetchItemsTodo(); 
     }, []);
 
-    if (!todos) {
-        return <p>Нет задач для отображения.</p>; 
+    if (loading) {
+        return <p>Загрузка задач...</p>;
     }
 
     return (
@@ -34,7 +34,6 @@ const TodoList = () => {
                     onClick={handleAddTodo}
                 >Добавить</button>
             </div>
-            {loading && <p>Загрузка задач...</p>}
             <ol className="mt-8">
                 {
                     todos.map((todo, index) => (
